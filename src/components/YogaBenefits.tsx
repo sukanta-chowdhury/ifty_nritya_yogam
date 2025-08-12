@@ -6,37 +6,31 @@ const YogaBenefits = () => {
     {
       icon: <Heart className="w-8 h-8" />,
       title: "Improves Flexibility",
-      description: "Enhance your body's range of motion and reduce stiffness through gentle stretching and poses.",
       image: "/src/assets/images/Yoga2.jpg"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Builds Strength",
-      description: "Develop core strength and muscle tone while maintaining balance and stability.",
       image: "/src/assets/images/Yoga 6.jpg"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Boosts Immunity",
-      description: "Strengthen your immune system through breathing exercises and stress reduction.",
       image: "/src/assets/images/Yoga3.jpg"
     },
     {
       icon: <Smile className="w-8 h-8" />,
       title: "Reduces Stress",
-      description: "Find inner peace and calm through mindful movement and meditation practices.",
       image: "https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg"
     },
     {
       icon: <Leaf className="w-8 h-8" />,
       title: "Better Breathing",
-      description: "Learn pranayama techniques to improve lung capacity and oxygen flow.",
       image: "https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg"
     },
     {
       icon: <Moon className="w-8 h-8" />,
       title: "Improves Sleep",
-      description: "Achieve better sleep quality through relaxation techniques and evening practices.",
       image: "https://images.pexels.com/photos/3822688/pexels-photo-3822688.jpeg"
     }
   ];
@@ -73,13 +67,10 @@ const YogaBenefits = () => {
                 </div>
               </div>
               
-              <div className="p-4 flex-grow flex flex-col">
-                <h3 className="text-lg font-bold text-text-primary mb-2 group-hover:text-accent transition-colors">
+              <div className="p-4 flex-grow flex flex-col justify-center items-center text-center">
+                <h3 className="text-lg font-bold text-text-primary group-hover:text-accent transition-colors">
                   {benefit.title}
                 </h3>
-                <p className="text-text-secondary text-sm leading-relaxed">
-                  {benefit.description}
-                </p>
               </div>
             </div>
           ))}
