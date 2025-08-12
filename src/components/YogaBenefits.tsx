@@ -7,19 +7,19 @@ const YogaBenefits = () => {
       icon: <Heart className="w-8 h-8" />,
       title: "Improves Flexibility",
       description: "Enhance your body's range of motion and reduce stiffness through gentle stretching and poses.",
-      image: "/src/assets/images/Yoga1.jpg"
+      image: "/src/assets/images/Yoga2.jpg"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Builds Strength",
       description: "Develop core strength and muscle tone while maintaining balance and stability.",
-      image: "/src/assets/images/Yoga3.jpg"
+      image: "/src/assets/images/Yoga 6.jpg"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Boosts Immunity",
       description: "Strengthen your immune system through breathing exercises and stress reduction.",
-      image: "https://images.pexels.com/photos/3822622/pexels-photo-3822622.jpeg"
+      image: "/src/assets/images/Yoga3.jpg"
     },
     {
       icon: <Smile className="w-8 h-8" />,
@@ -42,13 +42,13 @@ const YogaBenefits = () => {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-purple-50">
+    <section className="py-20 bg-gradient-to-b from-white to-primary">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
-            Benefits of <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">Yoga</span>
+          <h2 className="text-4xl lg:text-5xl font-bold text-text-primary mb-4">
+            Benefits of <span className="bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent">Yoga</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-text-secondary max-w-3xl mx-auto">
             Discover the transformative power of yoga and how it can enhance every aspect of your life
           </p>
         </div>
@@ -57,13 +57,13 @@ const YogaBenefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2"
+              className="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 flex flex-col"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-64 overflow-hidden">
                 <img 
                   src={benefit.image} 
                   alt={benefit.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -73,11 +73,11 @@ const YogaBenefits = () => {
                 </div>
               </div>
               
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 mb-3 group-hover:text-purple-600 transition-colors">
+              <div className="p-4 flex-grow flex flex-col">
+                <h3 className="text-lg font-bold text-text-primary mb-2 group-hover:text-accent transition-colors">
                   {benefit.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
