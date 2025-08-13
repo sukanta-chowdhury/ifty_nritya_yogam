@@ -26,7 +26,7 @@ const OnlineOfflineSupport = () => {
               </div>
               
               <p className="text-gray-600 mb-8 text-lg">
-                Join from the comfort of your home with our interactive online sessions. Perfect for busy schedules and flexible learning.
+                No matter where you are – in the city, out of town, or simply unable to attend in person – our interactive online classes bring the studio to you! Learn, move, and grow from the comfort of your home with expert guidance, flexible timings, and a vibrant community. Perfect for busy lifestyles and anyone seeking convenience without compromise.
               </p>
 
               <div className="space-y-4">
@@ -48,15 +48,7 @@ const OnlineOfflineSupport = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-white/70 rounded-2xl">
-                <h4 className="font-semibold text-gray-800 mb-2">What You Get:</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• HD video quality sessions</li>
-                  <li>• Interactive Q&A sessions</li>
-                  <li>• Digital class materials</li>
-                  <li>• WhatsApp community support</li>
-                </ul>
-              </div>
+              
             </div>
           </div>
 
@@ -71,7 +63,7 @@ const OnlineOfflineSupport = () => {
               </div>
               
               <p className="text-gray-600 mb-8 text-lg">
-                Experience the energy of our beautiful studio with personalized attention and hands-on guidance from certified instructors.
+                If you’re nearby, step into our serene studio and feel the energy in person. Enjoy personalized attention, hands-on guidance, and an uplifting atmosphere that inspires every move. Experience learning in a space designed to motivate, connect, and transform.
               </p>
 
               <div className="space-y-4">
@@ -93,15 +85,7 @@ const OnlineOfflineSupport = () => {
                 </div>
               </div>
 
-              <div className="mt-8 p-6 bg-white/70 rounded-2xl">
-                <h4 className="font-semibold text-gray-800 mb-2">Studio Features:</h4>
-                <ul className="text-sm text-gray-600 space-y-1">
-                  <li>• Natural lighting & ventilation</li>
-                  <li>• Premium yoga equipment</li>
-                  <li>• Peaceful ambiance</li>
-                  <li>• Safe & hygienic environment</li>
-                </ul>
-              </div>
+              
             </div>
           </div>
         </div>

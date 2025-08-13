@@ -1,8 +1,23 @@
-import React from 'react';
 import { ArrowRight, Play, Star } from 'lucide-react';
 import CountUp from 'react-countup';
+import { useEffect, useState } from 'react';
 
 const Hero = () => {
+  const [typedText, setTypedText] = useState('');
+  const fullText = 'Find Your Balance';
+
+  useEffect(() => {
+    let index = 0;
+    const intervalId = setInterval(() => {
+      setTypedText(fullText.slice(0, index + 1));
+      index += 1;
+      if (index >= fullText.length) {
+        clearInterval(intervalId);
+      }
+    }, 120);
+
+    return () => clearInterval(intervalId);
+  }, []);
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background with gradient overlay */}
@@ -23,18 +38,19 @@ const Hero = () => {
           {/* Left Content */}
           <div className="text-center lg:text-left space-y-8">
             <div className="space-y-4">
+              <p className="text-xs lg:text-sm font-semibold tracking-wider bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent uppercase">
+                Welcome to Ifty Nritra Yogam
+              </p>
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="bg-gradient-to-r from-secondary via-accent to-secondary bg-clip-text text-transparent">
-                  Find Your
+                  {typedText}
                 </span>
-                <br />
-                <span className="text-text-primary">Balance</span>
+                {typedText.length < fullText.length && (
+                  <span className="text-text-primary">|</span>
+                )}
               </h1>
-              <p className="text-xl lg:text-2xl text-text-secondary font-light">
-                Where the dancer becomes the dance, true dance begins and where the breath turns still, true yoga awakens.
-              </p>
-              <p className="text-lg text-text-secondary/80">
-                Experience the perfect harmony of movement and mindfulness at Ifty Nritya Yogam
+              <p className="text-xl lg:text-2xl text-text-secondary font-light max-w-2xl mx-auto lg:mx-0 leading-8 text-balance italic border-l-4 border-secondary/70 pl-5">
+                “Where the dancer becomes the dance, true dance begins and where the breath turns still, true yoga awakens.”
               </p>
             </div>
 
@@ -50,24 +66,24 @@ const Hero = () => {
               </button>
             </div>
 
-            {/* Stats */}
+            {/* Stats - slower counters */}
             <div className="flex justify-center lg:justify-start space-x-8 pt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-secondary">
-                  <CountUp end={500} duration={3} />+
+                  <CountUp end={100} duration={6} />+
                 </div>
-                <div className="text-text-secondary/80">Happy Students</div>
+                <div className="text-text-secondary/80">Interested</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-accent">
-                  <CountUp end={50} duration={3} />+
+                  <CountUp end={50} duration={6} />+
                 </div>
                 <div className="text-text-secondary/80">Classes Monthly</div>
               </div>
               <div className="text-center">
                 <div className="flex items-center justify-center mb-1">
                   <span className="text-3xl font-bold text-secondary">
-                    <CountUp end={4.9} duration={3} decimals={1} />
+                    <CountUp end={4.9} duration={6} decimals={1} />
                   </span>
                   <Star className="ml-1 text-yellow-400 fill-current" size={20} />
                 </div>
@@ -76,40 +92,22 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Content - Image */}
+          {/* Right Content - Images (no text overlays) */}
           <div className="relative">
-            <div className="relative z-10">
-              <img 
-                src="/src/assets/images/Yoga1.jpg" 
-                alt="Yoga Practice" 
-                className="w-full h-auto max-h-[500px] object-contain rounded-3xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-secondary to-accent rounded-3xl opacity-20"></div>
-              <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-accent to-secondary rounded-3xl opacity-20"></div>
-            </div>
-            
-            {/* Floating card */}
-            <div className="absolute top-8 -left-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-secondary to-accent rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">Y</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-text-primary">Yoga Classes</div>
-                  <div className="text-sm text-text-secondary/80">Online & Offline</div>
-                </div>
+            <div className="grid grid-cols-2 gap-4 lg:gap-6 items-center">
+              <div className="relative">
+                <img 
+                  src="/src/assets/images/Yoga1.jpg" 
+                  alt="Yoga Practice" 
+                  className="w-full h-[420px] lg:h-[500px] object-cover rounded-3xl shadow-2xl transform-gpu transition-transform duration-700 ease-out hover:scale-105"
+                />
               </div>
-            </div>
-
-            <div className="absolute bottom-8 -right-4 bg-white/90 backdrop-blur-sm p-4 rounded-2xl shadow-lg">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-accent to-secondary rounded-full flex items-center justify-center">
-                  <span className="text-white font-bold">D</span>
-                </div>
-                <div>
-                  <div className="font-semibold text-text-primary">Dance Forms</div>
-                  <div className="text-sm text-text-secondary/80">All Levels</div>
-                </div>
+              <div className="relative">
+                <img 
+                  src="/src/assets/images/DanceHome.jpg" 
+                  alt="Dance Practice" 
+                  className="w-full h-[420px] lg:h-[500px] object-cover rounded-3xl shadow-2xl"
+                />
               </div>
             </div>
           </div>

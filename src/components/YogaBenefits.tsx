@@ -6,32 +6,38 @@ const YogaBenefits = () => {
     {
       icon: <Heart className="w-8 h-8" />,
       title: "Improves Flexibility",
-      image: "/src/assets/images/Yoga2.jpg"
+      description: "Enhance your body's range of motion and reduce stiffness through gentle stretching and poses.",
+      image: "/src/assets/images/Yogacrop5.jpg"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Builds Strength",
-      image: "/src/assets/images/Yoga 6.jpg"
+      description: "Develop core strength and muscle tone while maintaining balance and stability.",
+      image: "/src/assets/images/Yogacrop4.jpg"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Boosts Immunity",
-      image: "/src/assets/images/Yoga3.jpg"
+      description: "Strengthen your immune system through breathing exercises and stress reduction.",
+      image: "/src/assets/images/Yogacrop1.jpg"
     },
     {
       icon: <Smile className="w-8 h-8" />,
       title: "Reduces Stress",
+      description: "Find inner peace and calm through mindful movement and meditation practices.",
       image: "https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg"
     },
     {
       icon: <Leaf className="w-8 h-8" />,
       title: "Better Breathing",
-      image: "https://images.pexels.com/photos/3822906/pexels-photo-3822906.jpeg"
+      description: "Learn pranayama techniques to improve lung capacity and oxygen flow.",
+      image: "https://cdn.prod.website-files.com/67691f03eb5bfa3289b3dae7/67691f03eb5bfa3289b3ebd1_fashionable-woman-gym-outfit-sitting-600nw-2453082629.webp"
     },
     {
       icon: <Moon className="w-8 h-8" />,
       title: "Improves Sleep",
-      image: "https://images.pexels.com/photos/3822688/pexels-photo-3822688.jpeg"
+      description: "Achieve better sleep quality through relaxation techniques and evening practices.",
+      image: "https://i0.wp.com/blog.sleepyhug.in/wp-content/uploads/2024/05/Relax-and-Sleep_-Mindfulness-Tips-from-SleepyHug-for-Better-Sleep-Quality.png?resize=770%2C470&ssl=1"
     }
   ];
 
@@ -47,7 +53,7 @@ const YogaBenefits = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
@@ -57,7 +63,7 @@ const YogaBenefits = () => {
                 <img 
                   src={benefit.image} 
                   alt={benefit.title}
-                  className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                 <div className="absolute bottom-4 left-4 text-white">
@@ -67,10 +73,13 @@ const YogaBenefits = () => {
                 </div>
               </div>
               
-              <div className="p-4 flex-grow flex flex-col justify-center items-center text-center">
-                <h3 className="text-lg font-bold text-text-primary group-hover:text-accent transition-colors">
+              <div className="p-4 flex-grow flex flex-col">
+                <h3 className="text-lg font-bold text-text-primary mb-2 group-hover:text-accent transition-colors">
                   {benefit.title}
                 </h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
+                  {benefit.description}
+                </p>
               </div>
             </div>
           ))}
