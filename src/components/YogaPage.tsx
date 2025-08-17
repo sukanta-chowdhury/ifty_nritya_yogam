@@ -5,7 +5,7 @@ const YogaPage = () => {
   const yogaPoses = [
     {
       name: "Surya Namaskara",
-      image: "/src/assets/images/suriya.png",
+      image: "/images/suriya.png",
       benefits: [
         "Improves cardiovascular health",
         "Enhances flexibility and strength",
@@ -15,7 +15,7 @@ const YogaPage = () => {
     },
     {
       name: "Vrikshasana (Tree Pose)",
-      image: "/src/assets/images/Yogacrop2.jpg",
+      image: "/images/Yogacrop2.jpg",
       benefits: [
         "Improves balance and stability",
         "Strengthens legs and core",
@@ -25,7 +25,7 @@ const YogaPage = () => {
     },
     {
       name: "Padmasana (Lotus Pose)",
-      image: "/src/assets/images/Yoga1.jpg",
+      image: "/images/Yoga1.jpg",
       benefits: [
         "Perfect for meditation",
         "Improves posture",

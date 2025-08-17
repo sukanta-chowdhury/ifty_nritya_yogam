@@ -97,14 +97,14 @@ const Hero = () => {
             <div className="grid grid-cols-2 gap-4 lg:gap-6 items-center">
               <div className="relative">
                 <img 
-                  src="/src/assets/images/Yoga1.jpg" 
+                  src="/images/Yoga1.jpg" 
                   alt="Yoga Practice" 
                   className="w-full h-[420px] lg:h-[500px] object-cover rounded-3xl shadow-2xl transform-gpu transition-transform duration-700 ease-out hover:scale-105"
                 />
               </div>
               <div className="relative">
                 <img 
-                  src="/src/assets/images/DanceHome.jpg" 
+                  src="/images/DanceHome.jpg" 
                   alt="Dance Practice" 
                   className="w-full h-[420px] lg:h-[500px] object-cover rounded-3xl shadow-2xl"
                 />

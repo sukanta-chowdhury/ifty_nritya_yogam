@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
               <img 
-                src="/src/assets/images/logo.jpg" 
+                src="/images/logo.jpg" 
                 alt="Ifty Nritya Yogam" 
                 className="h-12 w-12 rounded-full object-cover"
               />

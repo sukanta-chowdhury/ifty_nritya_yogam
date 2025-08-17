@@ -7,19 +7,19 @@ const YogaBenefits = () => {
       icon: <Heart className="w-8 h-8" />,
       title: "Improves Flexibility",
       description: "Enhance your body's range of motion and reduce stiffness through gentle stretching and poses.",
-      image: "/src/assets/images/Yogacrop5.jpg"
+      image: "/images/Yogacrop5.jpg"
     },
     {
       icon: <Zap className="w-8 h-8" />,
       title: "Builds Strength",
       description: "Develop core strength and muscle tone while maintaining balance and stability.",
-      image: "/src/assets/images/Yogacrop4.jpg"
+      image: "/images/Yogacrop4.jpg"
     },
     {
       icon: <Shield className="w-8 h-8" />,
       title: "Boosts Immunity",
       description: "Strengthen your immune system through breathing exercises and stress reduction.",
-      image: "/src/assets/images/Yogacrop1.jpg"
+      image: "/images/Yogacrop1.jpg"
     },
     {
       icon: <Smile className="w-8 h-8" />,

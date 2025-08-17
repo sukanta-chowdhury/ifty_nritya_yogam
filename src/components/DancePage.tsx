@@ -5,7 +5,7 @@ const DancePage = () => {
   const danceForms = [
     {
       name: "Kathak",
-      image: "/src/assets/images/Dance2.jpg",
+      image: "/images/Dance2.jpg",
       description: "Classical Indian dance form known for its intricate footwork, spins, and expressive storytelling through graceful movements.",
       origins: "Originated in North India, rooted in ancient temple traditions",
       benefits: ["Improves posture and grace", "Enhances cultural awareness", "Builds stamina and flexibility", "Develops rhythm and coordination"],
@@ -13,7 +13,7 @@ const DancePage = () => {
     },
     {
       name: "Classical Dance",
-      image: "/src/assets/images/Dance6.jpg",
+      image: "/images/dance6.jpg",
       description: "Traditional dance forms that preserve ancient cultural heritage through precise movements and expressions.",
       origins: "Ancient Indian classical traditions",
       benefits: ["Spiritual connection", "Physical discipline", "Cultural preservation", "Mental focus"],
@@ -21,7 +21,7 @@ const DancePage = () => {
     },
     {
       name: "Semi-Classical",
-      image: "/src/assets/images/Dance5.jpg",
+      image: "/images/dance5.jpg",
       description: "Fusion of classical techniques with contemporary expressions, creating a modern yet traditional dance style.",
       origins: "Modern adaptation of classical forms",
       benefits: ["Creative expression", "Versatile movement", "Cultural fusion", "Artistic freedom"],
