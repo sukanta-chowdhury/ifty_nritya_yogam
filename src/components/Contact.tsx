@@ -8,8 +8,7 @@ import {
   Facebook, 
   Youtube,
   Send,
-  Clock,
-  Users
+  Clock
 } from 'lucide-react';
 
 const Contact = () => {
@@ -20,6 +19,8 @@ const Contact = () => {
     preferredClass: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<null | { type: 'success' | 'error'; message: string }>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -28,18 +29,44 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      preferredClass: '',
-      message: ''
-    });
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/mojahariftesum@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          preferredClass: formData.preferredClass,
+          message: formData.message,
+          _subject: 'New Contact - Ifty Nritya Yogam',
+          _template: 'table',
+          _captcha: 'false',
+          _replyto: formData.email
+        })
+      });
+
+      const result = await response.json();
+      if (response.ok && result?.success) {
+        setSubmitStatus({ type: 'success', message: 'Thanks! Your message has been sent. We will get back to you shortly.' });
+        setFormData({ name: '', email: '', phone: '', preferredClass: '', message: '' });
+      } else {
+        setSubmitStatus({ type: 'error', message: 'Sorry, something went wrong. Please try again or reach us on WhatsApp.' });
+      }
+    } catch (err) {
+      setSubmitStatus({ type: 'error', message: 'Network error. Please check your connection and try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -128,11 +155,22 @@ const Contact = () => {
                 ></textarea>
               </div>
 
+              {submitStatus && (
+                <div
+                  role="alert"
+                  aria-live="polite"
+                  className={`text-sm px-4 py-3 rounded-xl ${submitStatus.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'}`}
+                >
+                  {submitStatus.message}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-secondary to-accent text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
+                disabled={isSubmitting}
+                className={`w-full bg-gradient-to-r from-secondary to-accent text-white py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform ${isSubmitting ? '' : 'hover:scale-105'} flex items-center justify-center disabled:opacity-70`}
               >
-                Send Message
+                {isSubmitting ? 'Sending…' : 'Send Message'}
                 <Send className="ml-2 w-5 h-5" />
               </button>
             </form>
@@ -150,7 +188,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-text-primary">Studio Address</h4>
-                    <p className="text-text-secondary">123 Wellness Street, Mindful City, State 12345</p>
+                    <p className="text-text-secondary">Amala Nursing Home, Near sanai lodge, Vivekananda Rd, Chinsurah R S,West Bengal 712103</p>
                   </div>
                 </div>
 
@@ -160,7 +198,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-text-primary">Phone</h4>
-                    <p className="text-text-secondary">+91 98765 43210</p>
+                    <a href="tel:+918100677351" className="text-text-secondary hover:text-secondary transition-colors">+91 81006 77351</a>
                   </div>
                 </div>
 
@@ -170,7 +208,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-text-primary">WhatsApp</h4>
-                    <p className="text-text-secondary">+91 98765 43210</p>
+                    <a href="https://wa.me/918100677351" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-secondary transition-colors">+91 81006 77351</a>
                   </div>
                 </div>
 
@@ -180,7 +218,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-text-primary">Email</h4>
-                    <p className="text-text-secondary">info@iftynrityayogam.com</p>
+                    <a href="mailto:info@iftynrityayogam.com" className="text-text-secondary hover:text-secondary transition-colors">info@iftynrityayogam.com</a>
                   </div>
                 </div>
               </div>
@@ -219,7 +257,7 @@ const Contact = () => {
                 <a href="#" className="bg-gradient-to-r from-pink-500 to-red-500 p-4 rounded-xl text-white hover:shadow-lg transition-all duration-300 transform hover:scale-110">
                   <Instagram className="w-6 h-6" />
                 </a>
-                <a href="#" className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 rounded-xl text-white hover:shadow-lg transition-all duration-300 transform hover:scale-110">
+                <a href="https://www.facebook.com/profile.php?id=61578262692004" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-500 to-blue-600 p-4 rounded-xl text-white hover:shadow-lg transition-all duration-300 transform hover:scale-110">
                   <Facebook className="w-6 h-6" />
                 </a>
                 <a href="#" className="bg-gradient-to-r from-red-500 to-red-600 p-4 rounded-xl text-white hover:shadow-lg transition-all duration-300 transform hover:scale-110">
@@ -227,7 +265,7 @@ const Contact = () => {
                 </a>
               </div>
               <p className="text-text-secondary mt-4">
-                Join our community of 500+ students and stay updated with tips, poses, and inspiration!
+                Join our community of 100+ interested students and stay updated with tips, poses, and inspiration!
               </p>
             </div>
           </div>
@@ -237,12 +275,25 @@ const Contact = () => {
         <div className="mt-16">
           <div className="bg-white rounded-3xl shadow-2xl p-8">
             <h3 className="text-2xl font-bold text-text-primary mb-6">Find Our Studio</h3>
-            <div className="bg-gray-200 rounded-2xl h-64 flex items-center justify-center">
-              <div className="text-center text-text-secondary/80">
-                <MapPin className="w-12 h-12 mx-auto mb-4" />
-                <p>Interactive Map</p>
-                <p className="text-sm">Google Maps integration would go here</p>
-              </div>
+            <div className="rounded-2xl overflow-hidden h-96 shadow-lg">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3677.8359669856706!2d88.38788497527037!3d22.901714579228475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f893e311b050e5%3A0x3d1d2e209be54b64!2sAmala%20Nursing%20Home!5e0!3m2!1sen!2sin!4v1692345678901!5m2!1sen!2sin"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Amala Nursing Home Location - Ifty Nritya Yogam Studio"
+              ></iframe>
+            </div>
+            <div className="mt-4 p-4 bg-gradient-to-r from-primary to-secondary/10 rounded-xl">
+              <p className="text-text-secondary text-sm">
+                <strong>📍 Studio Location:</strong> Amala Nursing Home, Near Sanai Lodge, Vivekananda Rd, Chinsurah R S, West Bengal 712103
+              </p>
+              <p className="text-text-secondary text-sm mt-2">
+                🚗 <strong>Directions:</strong> Click on the map above to get turn-by-turn directions from your location.
+              </p>
             </div>
           </div>
         </div>

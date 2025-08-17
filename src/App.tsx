@@ -9,6 +9,7 @@ import DancePage from './components/DancePage';
 import Pricing from './components/Pricing';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppWidget from './components/WhatsAppWidget';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       <Pricing />
       <Contact />
       <Footer />
+      <WhatsAppWidget />
     </div>
   );
 }

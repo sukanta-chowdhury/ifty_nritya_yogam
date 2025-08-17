@@ -99,11 +99,11 @@ const WhyChooseUs = () => {
         <div className="mt-20 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl p-8 text-white">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-purple-100">Happy Students</div>
+              <div className="text-4xl font-bold mb-2">100+</div>
+              <div className="text-purple-100">Interested Students</div>
             </div>
             <div>
-              <div className="text-4xl font-bold mb-2">1000+</div>
+              <div className="text-4xl font-bold mb-2">100+</div>
               <div className="text-purple-100">Classes Conducted</div>
             </div>
             <div>

@@ -13,7 +13,7 @@ const DancePage = () => {
     },
     {
       name: "Classical Dance",
-      image: "https://images.pexels.com/photos/3822688/pexels-photo-3822688.jpeg",
+      image: "/src/assets/images/Dance6.jpg",
       description: "Traditional dance forms that preserve ancient cultural heritage through precise movements and expressions.",
       origins: "Ancient Indian classical traditions",
       benefits: ["Spiritual connection", "Physical discipline", "Cultural preservation", "Mental focus"],
@@ -21,7 +21,7 @@ const DancePage = () => {
     },
     {
       name: "Semi-Classical",
-      image: "https://images.pexels.com/photos/3822864/pexels-photo-3822864.jpeg",
+      image: "/src/assets/images/Dance5.jpg",
       description: "Fusion of classical techniques with contemporary expressions, creating a modern yet traditional dance style.",
       origins: "Modern adaptation of classical forms",
       benefits: ["Creative expression", "Versatile movement", "Cultural fusion", "Artistic freedom"],
@@ -144,7 +144,7 @@ const DancePage = () => {
               <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6">
                 <Clock className="w-8 h-8 mx-auto mb-4" />
                 <h4 className="text-xl font-semibold mb-2">Monthly Fee</h4>
-                <div className="text-3xl font-bold">₹1,500</div>
+                <div className="text-3xl font-bold">₹500</div>
                 <p className="text-primary mt-2">All dance forms included</p>
               </div>
               <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6">
@@ -154,9 +154,9 @@ const DancePage = () => {
                 <p className="text-primary mt-2">Registration & materials</p>
               </div>
             </div>
-            <button className="mt-8 bg-white text-accent px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
+            <a href="#contact" className="mt-8 bg-white text-accent px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105 inline-block text-center">
               Enroll Now
-            </button>
+            </a>
           </div>
         </div>
       </div>

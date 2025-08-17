@@ -56,10 +56,10 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button className="group bg-gradient-to-r from-secondary to-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
+              <a href="#contact" className="group bg-gradient-to-r from-secondary to-accent text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all duration-300 transform hover:scale-105 flex items-center justify-center">
                 Book Free Demo
                 <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" size={20} />
-              </button>
+              </a>
               <button className="group border-2 border-secondary text-secondary px-8 py-4 rounded-full font-semibold hover:bg-secondary hover:text-white transition-all duration-300 flex items-center justify-center">
                 <Play className="mr-2 group-hover:scale-110 transition-transform" size={20} />
                 Watch Classes

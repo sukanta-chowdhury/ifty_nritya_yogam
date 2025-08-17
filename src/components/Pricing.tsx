@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, Star, Crown, Heart } from 'lucide-react';
+import SpecialOfferBanner from './SpecialOfferBanner';
 
 const Pricing = () => {
   const plans = [
@@ -20,7 +21,7 @@ const Pricing = () => {
     },
     {
       name: "Yoga Classes",
-      price: "₹1,000",
+      price: "₹500",
       period: "Monthly",
       description: "Complete yoga practice program",
       features: [
@@ -37,7 +38,7 @@ const Pricing = () => {
     },
     {
       name: "Dance Classes",
-      price: "₹1,500",
+      price: "₹500",
       period: "Monthly",
       description: "All dance forms under one roof",
       features: [
@@ -54,7 +55,7 @@ const Pricing = () => {
     },
     {
       name: "Combo Plan",
-      price: "₹2,000",
+      price: "₹1000",
       period: "Monthly",
       description: "Best value - Yoga + Dance together",
       features: [
@@ -71,12 +72,13 @@ const Pricing = () => {
       color: "from-yellow-500 to-orange-500",
       buttonColor: "bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600",
       popular: true,
-      savings: "Save ₹500/month"
+      savings: "Save ₹500 Admission Fee"
     }
   ];
 
   return (
     <section id="pricing" className="py-20 bg-gradient-to-b from-white to-primary">
+      <SpecialOfferBanner />
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -140,30 +142,12 @@ const Pricing = () => {
                 </div>
 
                 {/* CTA Button */}
-                <button className={`w-full ${plan.buttonColor} text-white py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg`}>
+                <a href="#contact" className={`block w-full ${plan.buttonColor} text-white py-3 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg text-center`}>
                   {index === 0 ? 'Get Started' : 'Choose Plan'}
-                </button>
+                </a>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Additional Info */}
-        <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-secondary to-accent rounded-3xl p-8 text-white">
-            <h3 className="text-2xl font-bold mb-4">🎉 Special Offer for New Students!</h3>
-            <p className="text-lg mb-6 opacity-90">
-              Get your first class absolutely FREE! Experience our teaching style and studio atmosphere before committing.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-accent px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105">
-                Book Free Demo Class
-              </button>
-              <button className="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-accent transition-all duration-300">
-                Contact Us
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* FAQ Section */}
