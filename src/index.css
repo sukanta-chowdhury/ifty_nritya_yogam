@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cream: #faf3e0;
+  --cream-dark: #f0e4c8;
+  --gold: #c8922a;
+  --gold-light: #e8c875;
+  --gold-dark: #9a6e1a;
+  --brown: #5c3d1e;
+  --brown-light: #8b6542;
+  --warm-white: #fffdf7;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'DM Sans', system-ui, sans-serif;
+    color: var(--brown-light);
+    background-color: var(--cream);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--brown);
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-7 py-3.5 font-medium text-white shadow-warm transition hover:bg-goldDark hover:-translate-y-0.5;
+  }
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border-2 border-gold px-7 py-3.5 font-medium text-gold transition hover:bg-gold hover:text-white;
+  }
+  .section {
+    @apply py-20;
+  }
+  .container-x {
+    @apply mx-auto max-w-6xl px-4;
+  }
+  .eyebrow {
+    @apply text-xs font-medium uppercase tracking-[0.25em] text-gold;
+  }
+}
+
+/* Masonry columns */
+.masonry {
+  column-count: 3;
+  column-gap: 1.25rem;
+}
+@media (max-width: 1024px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+@media (max-width: 640px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1.25rem;
+}
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 30s linear infinite;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Hide scrollbars for horizontal carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
