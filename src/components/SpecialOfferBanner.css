@@ -1,0 +1,68 @@
+.special-offer-banner {
+  background: linear-gradient(to right, #FFDAB9, #E6E6FA); /* Peach to Light Lavender */
+  color: #363636; /* Dark Grey */
+  padding: 1rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.scrolling-text-container {
+  overflow: hidden;
+  width: calc(100% - 150px); /* Adjust width to account for the button */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.scrolling-text {
+  display: flex;
+  width: 200%;
+  animation: scroll 30s linear infinite;
+}
+
+.scrolling-text span {
+  width: 100%;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.join-now-button {
+  background-color: #363636; /* Dark Grey */
+  color: #FFFFFF;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  margin-left: 1rem;
+  transition: transform 0.2s;
+}
+
+.join-now-button:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .special-offer-banner {
+    padding: 0.5rem;
+  }
+
+  .scrolling-text {
+    animation-duration: 15s;
+  }
+
+  .join-now-button {
+    display: block;
+    margin: 0.5rem auto 0;
+    width: fit-content;
+  }
+}
