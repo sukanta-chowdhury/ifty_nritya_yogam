@@ -1,11 +1,11 @@
 const items = [
-  '🌟 Certified Instructor',
+  '🌟 Authorized Certificate',
   '🪷 Yoga & Dance',
   '🎓 All Age Groups',
   '📱 Online & Offline Classes',
   '💛 4.9★ Rated',
   '🌺 Kathak & Contemporary',
-  '✨ 100+ Happy Students',
+  '✨ 100+ Interested',
   '🏆 6+ Years Experience',
 ];
 

@@ -27,7 +27,7 @@ export const faqs: FAQ[] = [
   },
   {
     q: 'Can I switch between yoga and dance classes?',
-    a: 'Absolutely. Our Premium plan includes both. You can also upgrade any time.',
+    a: 'Absolutely. You can enroll in both Yoga and Dance plans, or add meditation to your yoga plan anytime.',
   },
   {
     q: 'Do you offer weekend classes?',

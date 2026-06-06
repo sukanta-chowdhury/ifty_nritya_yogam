@@ -5,7 +5,7 @@ import { galleryItems, type GalleryItem } from '../../data/gallery';
 
 type Props = { onBookDemo: () => void };
 
-const filters = ['All', 'Yoga', 'Dance', 'Workshops', 'Performances'] as const;
+const filters = ['All', 'Yoga', 'Dance', 'Performances'] as const;
 
 export default function Gallery({ onBookDemo }: Props) {
   const [filter, setFilter] = useState<(typeof filters)[number]>('All');

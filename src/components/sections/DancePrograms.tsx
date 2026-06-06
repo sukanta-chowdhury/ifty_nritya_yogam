@@ -5,7 +5,7 @@ import ProgramCard from './ProgramCard';
 
 type Props = { onBookDemo: () => void };
 
-const filters = ['All', 'Classical', 'Contemporary', 'Kids', 'Bollywood'] as const;
+const filters = ['All', 'Classical', 'Semi-Classical', 'Contemporary', 'Kids'] as const;
 
 export default function DancePrograms({ onBookDemo }: Props) {
   const [active, setActive] = useState<(typeof filters)[number]>('All');

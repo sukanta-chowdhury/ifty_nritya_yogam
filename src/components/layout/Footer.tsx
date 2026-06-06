@@ -1,4 +1,5 @@
 import { Instagram, Youtube, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { PHONE_DISPLAY, STUDIO_ADDRESS } from '../../utils/submitLead';
 
 export default function Footer() {
   return (
@@ -75,10 +76,10 @@ export default function Footer() {
           <ul className="mt-4 space-y-2 text-sm text-cream/80">
             <li className="flex items-start gap-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-goldLight" />
-              Studio Address, City
+              {STUDIO_ADDRESS}
             </li>
             <li className="flex items-center gap-2">
-              <Phone className="h-4 w-4 text-goldLight" /> +91 99999 99999
+              <Phone className="h-4 w-4 text-goldLight" /> {PHONE_DISPLAY}
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4 text-goldLight" /> hello@iftynrityayogam.in

@@ -11,7 +11,13 @@ export type LeadPayload = {
   timestamp: string;
 };
 
-export const WHATSAPP_NUMBER = '919999999999';
+export const PHONE_DISPLAY = '+91 8100677351';
+export const PHONE_TEL = '+918100677351';
+export const WHATSAPP_NUMBER = '918100677351';
+export const STUDIO_ADDRESS =
+  'Amala Nursing Home, Vivekananda Rd, Chinsurah R S, Chinsurah, West Bengal 712103, India';
+export const MAP_EMBED_URL =
+  'https://maps.google.com/maps?q=Amala+Nursing+Home,+Vivekananda+Rd,+Chinsurah+R+S,+Chinsurah,+West+Bengal+712103,+India&z=15&output=embed';
 
 export async function submitLead(
   data: Omit<LeadPayload, 'timestamp'>

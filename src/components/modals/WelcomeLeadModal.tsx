@@ -77,7 +77,7 @@ export default function WelcomeLeadModal({ open, onClose, onConverted }: Props) 
                     Claim Your FREE Demo Class
                   </h3>
                   <p className="mt-2 text-sm text-brownLight">
-                    Join 100+ students already transforming their lives with yoga &amp; dance
+                    Join 100+ interested learners already transforming their lives with yoga &amp; dance
                   </p>
 
                   <div className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-800">

@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, Phone, X } from 'lucide-react';
 import { useState } from 'react';
 import { useScrollPosition } from '../../hooks/useScrollPosition';
+import { PHONE_TEL } from '../../utils/submitLead';
 
 type Props = { onBookDemo: () => void };
 
@@ -53,7 +54,7 @@ export default function Navbar({ onBookDemo }: Props) {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href="tel:+919999999999"
+            href={`tel:${PHONE_TEL}`}
             className="inline-flex items-center gap-2 rounded-full border-2 border-gold px-4 py-2 text-sm font-medium text-gold transition hover:bg-gold hover:text-white"
           >
             <Phone className="h-4 w-4" /> Call Now
@@ -107,7 +108,7 @@ export default function Navbar({ onBookDemo }: Props) {
               ))}
               <div className="mt-6 flex flex-col gap-3 px-4">
                 <a
-                  href="tel:+919999999999"
+                  href={`tel:${PHONE_TEL}`}
                   className="inline-flex items-center justify-center gap-2 rounded-full border-2 border-gold px-4 py-3 text-sm font-medium text-gold"
                 >
                   <Phone className="h-4 w-4" /> Call Now

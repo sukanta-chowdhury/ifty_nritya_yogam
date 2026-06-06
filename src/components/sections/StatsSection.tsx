@@ -8,17 +8,20 @@ function AnimatedStat({
   suffix,
   label,
   start,
+  decimals,
 }: {
   value: number;
   suffix?: string;
   label: string;
   start: boolean;
+  decimals?: number;
 }) {
   const v = useCountUp(value, 1800, start);
+  const display = decimals != null ? v.toFixed(decimals) : String(Math.round(v));
   return (
     <div className="text-center">
       <div className="font-heading text-5xl font-bold text-goldLight sm:text-6xl">
-        {Math.round(v)}
+        {display}
         {suffix}
       </div>
       <div className="mt-2 text-sm uppercase tracking-widest text-cream/80">{label}</div>
@@ -46,11 +49,16 @@ export default function StatsSection() {
   return (
     <section ref={ref} className="bg-brown py-20 text-warmWhite">
       <div className="container-x">
-        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
-          <AnimatedStat value={100} suffix="+" label="Students Enrolled" start={start} />
-          <AnimatedStat value={50} suffix="+" label="Classes Monthly" start={start} />
-          <AnimatedStat value={49} suffix="★" label="Average Rating" start={start} />
+        <div className="grid gap-10 sm:grid-cols-3">
+          <AnimatedStat value={100} suffix="+" label="Interested" start={start} />
           <AnimatedStat value={6} suffix="+" label="Years Experience" start={start} />
+          <AnimatedStat
+            value={4.9}
+            suffix=" ★"
+            label="Average Rating"
+            start={start}
+            decimals={1}
+          />
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-3">
@@ -67,8 +75,8 @@ export default function StatsSection() {
             },
             {
               icon: GraduationCap,
-              title: 'Government Certified',
-              text: 'Trained, certified instructors you can trust.',
+              title: 'Authorized Certificate',
+              text: 'Trained, authorized instructors you can trust.',
             },
           ].map(({ icon: Icon, title, text }, i) => (
             <motion.div

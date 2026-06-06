@@ -1,12 +1,13 @@
 import { Phone, Flower2 } from 'lucide-react';
+import { PHONE_TEL } from '../../utils/submitLead';
 
-type Props = { onBookDemo: () => void; phone?: string };
+type Props = { onBookDemo: () => void };
 
-export default function StickyMobileCTA({ onBookDemo, phone = '+919999999999' }: Props) {
+export default function StickyMobileCTA({ onBookDemo }: Props) {
   return (
     <div className="fixed inset-x-0 bottom-0 z-40 grid grid-cols-2 sm:hidden">
       <a
-        href={`tel:${phone}`}
+        href={`tel:${PHONE_TEL}`}
         className="flex items-center justify-center gap-2 bg-brown py-4 text-sm font-semibold text-cream"
       >
         <Phone className="h-4 w-4" /> Call Now

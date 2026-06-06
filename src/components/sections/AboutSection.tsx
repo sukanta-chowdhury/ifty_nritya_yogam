@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { GraduationCap, Calendar, Users, Award } from 'lucide-react';
+import { legacyImages } from '../../data/images';
 
 type Props = { onBookDemo: () => void };
 
@@ -15,16 +16,16 @@ export default function AboutSection({ onBookDemo }: Props) {
           transition={{ duration: 0.6 }}
         >
           <img
-            src="/images/suriya.png"
+            src={legacyImages.instructor}
             alt="Instructor Ifty"
-            className="h-[480px] w-full rounded-2xl object-cover shadow-warmLg"
+            className="h-[480px] w-full rounded-2xl object-cover object-center shadow-warmLg"
           />
           <div className="absolute -right-3 top-6 rounded-full bg-gold px-4 py-2 text-sm font-semibold text-white shadow-warm">
-            10+ Years Teaching
+            6+ Years Experience
           </div>
           <div className="absolute -bottom-4 left-6 flex items-center gap-2 rounded-2xl bg-warmWhite px-4 py-3 shadow-warm">
             <Award className="h-5 w-5 text-gold" />
-            <span className="text-sm font-medium text-brown">Government Certified</span>
+            <span className="text-sm font-medium text-brown">Authorized Certificate</span>
           </div>
         </motion.div>
 
@@ -52,22 +53,22 @@ export default function AboutSection({ onBookDemo }: Props) {
             </p>
             <p>
               From an intimate offline studio to live online classes nationwide, Ifty has
-              taught 100+ students across India to find their balance — on and off the mat.
+              taught 100+ interested learners across India to find their balance — on and off the mat.
             </p>
           </div>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-3">
             <div className="flex items-center gap-2 rounded-2xl bg-warmWhite px-4 py-3 shadow-warm">
               <GraduationCap className="h-5 w-5 text-gold" />
-              <span className="text-xs font-medium text-brown">Govt. Certified</span>
+              <span className="text-xs font-medium text-brown">Authorized Certificate</span>
             </div>
             <div className="flex items-center gap-2 rounded-2xl bg-warmWhite px-4 py-3 shadow-warm">
               <Calendar className="h-5 w-5 text-gold" />
-              <span className="text-xs font-medium text-brown">6+ Yrs Teaching</span>
+              <span className="text-xs font-medium text-brown">6+ Years Experience</span>
             </div>
             <div className="flex items-center gap-2 rounded-2xl bg-warmWhite px-4 py-3 shadow-warm">
               <Users className="h-5 w-5 text-gold" />
-              <span className="text-xs font-medium text-brown">100+ Students</span>
+              <span className="text-xs font-medium text-brown">100+ Interested</span>
             </div>
           </div>
 

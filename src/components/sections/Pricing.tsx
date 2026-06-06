@@ -2,13 +2,14 @@ import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import { useState } from 'react';
 
-type Cycle = 'Monthly' | 'Quarterly' | 'Yearly';
+type PlanTab = 'Yoga' | 'Dance' | 'Meditation';
 
 type Plan = {
+  id: string;
   name: string;
   tag?: string;
   highlight?: 'gold' | 'brown';
-  prices: Record<Cycle, string>;
+  price: string;
   unit: string;
   features: string[];
   cta: string;
@@ -17,47 +18,51 @@ type Plan = {
 
 const plans: Plan[] = [
   {
+    id: 'free',
     name: 'Free Trial',
-    prices: { Monthly: '₹0', Quarterly: '₹0', Yearly: '₹0' },
+    price: '₹0',
     unit: 'One free demo class',
     features: ['1 demo class', 'Any discipline', 'Online or offline'],
     cta: 'Claim Free Demo',
     outline: true,
   },
   {
-    name: 'Standard',
+    id: 'yoga',
+    name: 'Yoga',
     tag: 'Most Popular',
     highlight: 'gold',
-    prices: { Monthly: '₹1,499', Quarterly: '₹1,199', Yearly: '₹999' },
+    price: '₹500',
     unit: 'per month',
     features: [
-      '2 classes/week',
-      'Choose yoga or dance',
+      'Monthly yoga classes',
+      'Online or offline sessions',
+      'All skill levels welcome',
       'WhatsApp support',
-      'Progress tracking',
+      '+ ₹100 extra for meditation',
     ],
-    cta: 'Enroll Now',
+    cta: 'Enroll in Yoga',
   },
   {
-    name: 'Premium',
-    tag: 'Best Value',
+    id: 'dance',
+    name: 'Dance',
+    tag: 'Flexible Plans',
     highlight: 'brown',
-    prices: { Monthly: '₹2,499', Quarterly: '₹1,999', Yearly: '₹1,699' },
+    price: '₹200 – ₹400',
     unit: 'per month',
     features: [
-      'Daily classes',
-      'Both yoga & dance',
-      '1:1 session/month',
-      'Video recordings',
-      'Priority booking',
+      '1–2 classes per month',
+      'Kathak, Classical & more',
+      'Kids & adult batches',
+      'Online or offline',
+      'WhatsApp support',
     ],
-    cta: 'Go Premium',
+    cta: 'Enroll in Dance',
   },
 ];
 
 export default function Pricing() {
-  const [cycle, setCycle] = useState<Cycle>('Monthly');
-  const cycles: Cycle[] = ['Monthly', 'Quarterly', 'Yearly'];
+  const [activeTab, setActiveTab] = useState<PlanTab>('Yoga');
+  const tabs: PlanTab[] = ['Yoga', 'Dance', 'Meditation'];
 
   return (
     <section id="pricing" className="section bg-creamDark">
@@ -68,38 +73,46 @@ export default function Pricing() {
             Invest in Your <span className="italic text-gold">Wellbeing</span>
           </h2>
           <p className="mx-auto mt-3 max-w-xl text-brownLight">
-            Flexible plans — no hidden charges. Cancel anytime.
+            Simple monthly plans — no hidden charges. Cancel anytime.
           </p>
         </div>
 
         <div className="mx-auto mt-8 flex w-fit items-center gap-1 rounded-full bg-warmWhite p-1 shadow-warm">
-          {cycles.map((c) => (
+          {tabs.map((tab) => (
             <button
-              key={c}
-              onClick={() => setCycle(c)}
-              className={`relative rounded-full px-5 py-2 text-sm font-medium transition ${
-                cycle === c ? 'bg-gold text-white' : 'text-brown hover:text-goldDark'
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition ${
+                activeTab === tab ? 'bg-gold text-white' : 'text-brown hover:text-goldDark'
               }`}
             >
-              {c}
-              {c === 'Quarterly' && (
-                <span className="ml-1 rounded-full bg-emerald-100 px-2 py-0.5 text-[10px] font-semibold text-emerald-700">
-                  Save 20%
-                </span>
-              )}
+              {tab}
             </button>
           ))}
         </div>
 
-        <div className="mt-12 grid items-stretch gap-6 md:grid-cols-3">
+        {activeTab === 'Meditation' && (
+          <p className="mx-auto mt-4 max-w-lg text-center text-sm text-brown">
+            Meditation is available as a <strong>₹100/month add-on</strong> with your Yoga plan.
+          </p>
+        )}
+
+        <div className="mt-10 grid items-stretch gap-6 md:grid-cols-3">
           {plans.map((plan, i) => {
             const isGold = plan.highlight === 'gold';
             const isBrown = plan.highlight === 'brown';
-            const base = 'relative flex flex-col rounded-3xl p-8 shadow-warm transition';
+            const isActive =
+              (activeTab === 'Yoga' && plan.id === 'yoga') ||
+              (activeTab === 'Dance' && plan.id === 'dance') ||
+              (activeTab === 'Meditation' && plan.id === 'yoga');
+
+            const base = `relative flex flex-col rounded-3xl p-8 shadow-warm transition ${
+              isActive && !plan.outline ? 'md:scale-105 ring-2 ring-goldLight/50' : ''
+            }`;
             const styled = plan.outline
               ? 'border-2 border-gold/40 bg-warmWhite'
               : isGold
-              ? 'bg-gold text-white md:scale-105'
+              ? 'bg-gold text-white'
               : isBrown
               ? 'bg-brown text-warmWhite'
               : 'bg-warmWhite';
@@ -116,7 +129,7 @@ export default function Pricing() {
 
             return (
               <motion.div
-                key={plan.name}
+                key={plan.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
@@ -137,27 +150,35 @@ export default function Pricing() {
                 >
                   {plan.name}
                 </h3>
-                <div className="mt-4 flex items-baseline gap-2">
+                <div className="mt-4 flex flex-wrap items-baseline gap-2">
                   <span
                     className={`font-heading text-4xl font-bold ${
                       isGold || isBrown ? 'text-warmWhite' : 'text-brown'
                     }`}
                   >
-                    {plan.prices[cycle]}
+                    {plan.price}
                   </span>
                   <span className={`text-sm ${textMuted}`}>{plan.unit}</span>
                 </div>
-                <ul className={`mt-6 space-y-3 text-sm ${textMuted}`}>
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <Check
-                        className={`mt-0.5 h-4 w-4 shrink-0 ${
-                          isGold || isBrown ? 'text-goldLight' : 'text-gold'
-                        }`}
-                      />
-                      {f}
-                    </li>
-                  ))}
+                <ul className={`mt-6 flex-1 space-y-3 text-sm ${textMuted}`}>
+                  {plan.features.map((f) => {
+                    const isMeditationLine = f.includes('meditation');
+                    const emphasize =
+                      activeTab === 'Meditation' && isMeditationLine && plan.id === 'yoga';
+                    return (
+                      <li
+                        key={f}
+                        className={`flex items-start gap-2 ${emphasize ? 'font-semibold text-warmWhite' : ''}`}
+                      >
+                        <Check
+                          className={`mt-0.5 h-4 w-4 shrink-0 ${
+                            isGold || isBrown ? 'text-goldLight' : 'text-gold'
+                          }`}
+                        />
+                        {f}
+                      </li>
+                    );
+                  })}
                 </ul>
                 <a
                   href="#contact"

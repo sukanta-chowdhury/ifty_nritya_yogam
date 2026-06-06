@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Play, BadgeCheck, Globe } from 'lucide-react';
 import { useCountUp } from '../../hooks/useCountUp';
 import { useEffect, useRef, useState } from 'react';
+import { legacyImages } from '../../data/images';
 
 type Props = { onBookDemo: () => void };
 
@@ -28,6 +29,32 @@ function Stat({ value, suffix, label }: { value: number; suffix?: string; label:
         {suffix}
       </div>
       <div className="mt-1 text-xs uppercase tracking-wider text-brownLight">{label}</div>
+    </div>
+  );
+}
+
+function RatingStat() {
+  const [start, setStart] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setStart(true);
+      },
+      { threshold: 0.4 }
+    );
+    obs.observe(node);
+    return () => obs.disconnect();
+  }, []);
+  const v = useCountUp(4.9, 1500, start);
+  return (
+    <div ref={ref}>
+      <div className="font-heading text-3xl font-bold text-gold sm:text-4xl">
+        {start ? v.toFixed(1) : '0.0'} ★
+      </div>
+      <div className="mt-1 text-xs uppercase tracking-wider text-brownLight">Rating</div>
     </div>
   );
 }
@@ -109,8 +136,8 @@ export default function HeroSection({ onBookDemo }: Props) {
             variants={fadeUp}
           >
             <Stat value={100} suffix="+" label="Interested" />
-            <Stat value={50} suffix="+" label="Classes / Month" />
-            <Stat value={49} suffix="★" label="Rating" />
+            <Stat value={6} suffix="+" label="Years Experience" />
+            <RatingStat />
           </motion.div>
         </div>
 
@@ -121,9 +148,9 @@ export default function HeroSection({ onBookDemo }: Props) {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <img
-            src="/images/Yoga1.jpg"
-            alt="Yoga"
-            className="absolute left-0 top-6 h-[70%] w-[70%] rounded-2xl object-cover shadow-warmLg"
+            src={legacyImages.heroYoga}
+            alt="Yoga practice outdoors"
+            className="absolute left-0 top-6 h-[70%] w-[70%] rounded-2xl object-cover object-center shadow-warmLg"
             loading="eager"
           />
           <img
@@ -136,8 +163,8 @@ export default function HeroSection({ onBookDemo }: Props) {
           <div className="absolute -right-2 top-2 flex items-center gap-2 rounded-2xl bg-warmWhite px-3 py-2 shadow-warm">
             <BadgeCheck className="h-5 w-5 text-gold" />
             <div>
-              <div className="text-xs font-medium text-brown">Certified Instructor</div>
-              <div className="text-[10px] text-brownLight">Government recognized</div>
+              <div className="text-xs font-medium text-brown">Authorized Instructor</div>
+              <div className="text-[10px] text-brownLight">Authorized Certificate</div>
             </div>
           </div>
 
